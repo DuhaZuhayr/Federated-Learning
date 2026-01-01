@@ -1,0 +1,7 @@
+env/
+*.npy
+*.npz
+client_data/
+__pycache__/
+*.pyc
+.DS_Store

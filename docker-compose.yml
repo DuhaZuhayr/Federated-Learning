@@ -1,0 +1,70 @@
+services:
+  server:  
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+    container_name: server
+
+  client0:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - CLIENT_ID=0
+    depends_on:
+      - server
+    restart: on-failure
+    volumes:
+      - .:/app
+
+  client1:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - CLIENT_ID=1
+    depends_on:
+      - server
+    restart: on-failure
+    volumes:
+      - .:/app
+
+  client2:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - CLIENT_ID=2
+    depends_on:
+      - server
+    restart: on-failure
+    volumes:
+      - .:/app
+
+  client3:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - CLIENT_ID=3
+    depends_on:
+      - server
+    restart: on-failure
+    volumes:
+      - .:/app
+
+  client4:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - CLIENT_ID=4
+    depends_on:
+      - server
+    restart: on-failure
+    volumes:
+      - .:/app
